@@ -6,7 +6,7 @@ namespace Api.Controllers
     {
         public IActionResult Index()
         {
-            return View();//base controller
+            return View();
 
 
         }
