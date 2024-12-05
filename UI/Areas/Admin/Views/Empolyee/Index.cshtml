@@ -1,0 +1,48 @@
+﻿<center><h1>View from Admin Controller</h1></center>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+<style>
+    .delete{
+        cursor: pointer;
+    }
+</style>
+
+<body>
+<a class=" first nav-link text-dark btn btn-primary" href="/Admin/Empolyee/Create">Create</a>
+
+<div class="d-flex justify-content-center">
+    <table class="table table-responsive text-center align-middle" id="Empolyee-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UserID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script id="empdata" type="text/x-jquery-tmpl">
+    <tr>
+    <td>${id}</td>
+    <td>${userId}</td>
+    <td>${name}</td>
+    <td>${description}</td>
+    <td>
+           <a class="text-danger cursor-pointer delete" onclick="DeleteData(${id})">Delete</a> |
+           <a class="text-primary cursor-pointer" href="/Admin/Empolyee/Create?id=${id}">Edit</>
+
+
+       </td>
+    </tr>
+</script>
+
+<script src="~/Empolyee/EmpolyeeList.js"></script>
+</body>
