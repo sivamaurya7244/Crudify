@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string strJwtToken = "";
+    if (TempData["JWTToken"] != null)
+    {
+        strJwtToken = TempData["JWTToken"].ToString();
+    }
+    else
+    {
+        TempData["ErrorMessage"] = "JWT Token is missing. Please log in again.";
+
+    }
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<style>
+    .alert{
+        display:none;
+    }
+
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+
+
+
+<script>
+    if("@strJwtToken" != ""){
+        sessionStorage.setItem("jwtToken","@strJwtToken");
+    }
+</script>
+<div class="d-flex justify-content-center">
+    <table class="table table-responsive text-center align-middle" id="Empolyee-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UserID</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script id="empdata" type="text/x-jquery-tmpl">
+    <tr>
+    <td>${id}</td>
+    <td>${userId}</td>
+    <td>${name}</td>
+    <td>${description}</td>
+    </tr>
+</script>
+
+<script src="~/Empolyee/EmpolyeeList.js"></script>

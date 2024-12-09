@@ -1,0 +1,60 @@
+﻿<center><h1>View from Admin Controller</h1></center>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<style>
+    .delete {
+        cursor: pointer;
+    }
+
+    #no-records{
+        display:none;
+    }
+</style>
+
+<body>
+    <div class="d-grid  d-md-flex justify-content-md-start">
+
+        <a class=" first nav-link text-white btn btn-primary" href="/Admin/Empolyee/Create">Create</a>
+    </div>
+
+    <input type="text" class="form-control mt-3 p-3" placeholder="Search Here..." id="search-input">
+    <p id="no-records" style="color:purple"> No data found</p>
+
+    <div class="d-flex justify-content-center">
+        <table class="table table-responsive text-center align-middle" id="Empolyee-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>UserID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script id="empdata" type="text/x-jquery-tmpl">
+        <tr>
+        <td>${id}</td>
+        <td>${userId}</td>
+        <td>${name}</td>
+        <td>${description}</td>
+        <td>
+            <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
+                <a class="cursor-pointer delete btn btn-outline-danger" onclick="DeleteData(${id})">Delete</a>
+                <a class="btn btn-outline-warning cursor-pointer" href="/Admin/Empolyee/Create?id=${id}">Edit</a>
+            </div>
+        </td>
+        </tr>
+    </script>
+
+    <script src="~/Empolyee/EmpolyeeList.js"></script>
+</body>

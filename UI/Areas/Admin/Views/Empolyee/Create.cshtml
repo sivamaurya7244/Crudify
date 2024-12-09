@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Add Empolyee</h1>
+
+<style>
+    .hide {
+        display: none;
+    }
+</style>
+
+<form class="container mt-4">
+
+    <div class="mb-3">
+
+        <label for="userId" class="form-label">Enter userId:</label>
+        <input type="text" id="userId" name="userId" placeholder="Enter userId" class="form-control border border-black">
+        <label class="hide" style="color:red" id="userIdError">User ID is required</label>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label for="name" class="form-label">Enter Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter Name" class="form-control border border-black">
+        <label class="hide" style="color:red" id="nameError">Name is required</label>
+
+    </div>
+
+    <div class="mb-3" id="pass">
+
+        <label for="password" class="form-label">Enter Password:</label>
+        <input type="text" id="password" name="password" placeholder="Enter Password" class="form-control border border-black">
+        <label class="hide" style="color:red" id="passwordError">Password is required</label>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label for="description" class="form-label">Enter description:</label>
+        <input type="text" id="description" name="description" placeholder="Enter Description" class="form-control border border-black">
+        <label class="hide" style="color:red" id="descriptionError">Description is required</label>
+
+    </div>
+
+    <div class="mb-3">
+        <input type="button" id="btn" onclick="addEmpolyee()" value="submit" class="btn btn-primary">
+        <a href="/Admin/Empolyee" class="btn btn-secondary">Back to Empolyee List </a>
+    </div>
+
+</form>
+
+<script src="~/js/jquery.min.js"></script>
+<script src="~/Empolyee/EmpolyeeAddEdit.js"></script>
