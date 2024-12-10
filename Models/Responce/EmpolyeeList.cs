@@ -18,7 +18,9 @@ namespace Models.Responce
         public int LoginSuccess { get; set; }
         [JsonIgnore]
         public string Message { get; set; }
+        public bool isActive { get; set; }
+
 
     }
-   
+
 }

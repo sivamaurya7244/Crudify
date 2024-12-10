@@ -26,6 +26,7 @@ function addEmpolyee() {
             "Name": $("#name").val(),
             "Password": $("#password").val(),
             "Description": $("#description").val(),
+            "isActive": $("#isActive").prop("checked")
         }
 
         var urls = "";

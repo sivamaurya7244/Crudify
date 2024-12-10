@@ -30,6 +30,7 @@
                     <th>UserID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>IsActive</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -46,6 +47,7 @@
         <td>${userId}</td>
         <td>${name}</td>
         <td>${description}</td>
+        <td>${isActive}</td>
         <td>
             <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
                 <a class="cursor-pointer delete btn btn-outline-danger" onclick="DeleteData(${id})">Delete</a>
