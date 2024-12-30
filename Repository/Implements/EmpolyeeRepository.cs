@@ -57,6 +57,7 @@ namespace Repository.Implements
                     parameters.Add("Name", obj.Name);
                     parameters.Add("Password", obj.Password);
                     parameters.Add("Description", obj.Description);
+                    parameters.Add("isActive", obj.isActive);
 
                     parameters.Add("Status", dbType: DbType.Int32, direction: ParameterDirection.Output);
                     parameters.Add("Message", dbType: DbType.String, size: 50, direction: ParameterDirection.Output);

@@ -92,6 +92,8 @@ function getEmpolyeeDetails(id) {
             $("#name").val(responce.name);
             $("#password").val(responce.password);
             $("#description").val(responce.description);
+            $("#isActive").prop('checked', responce.isActive);
+
             console.log("Data fetched: ", responce);
         },
         error: function (xhr, status, error) {
