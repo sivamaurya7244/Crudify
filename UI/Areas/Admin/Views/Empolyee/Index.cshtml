@@ -47,7 +47,12 @@
         <td>${userId}</td>
         <td>${name}</td>
         <td>${description}</td>
-        <td>${isActive}</td>
+        <td>
+            <div class="form-switch custom">
+                <input type="checkbox" id="chkIsActive_${id}" class="form-check-input button" ${isActive ? "checked" : ""} data-id="${id}" data-active="${isActive}">
+                <label for="chkIsActive_${id}" class="form-check-label"></label>
+            </div>
+        </td>
         <td>
             <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
                 <a class="cursor-pointer delete btn btn-outline-danger" onclick="DeleteData(${id})">Delete</a>
