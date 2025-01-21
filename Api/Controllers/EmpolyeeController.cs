@@ -48,6 +48,7 @@ namespace API.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         [Route("InsertEmpolyee")]
 
@@ -68,7 +69,7 @@ namespace API.Controllers
             
         }
 
-
+        [Authorize]
         [HttpPost]
         [Route("UpdateEmpolyee")]
         public async Task<IActionResult> UpdateEmpolyeeData([FromBody] EmpolyeeAddUpdateParam obj)
@@ -85,6 +86,7 @@ namespace API.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost]
         [Route("DeleteEmpolyee")]
         public async Task<IActionResult> DeleteEmpolyeeData([FromBody] EmpolyeeDeleteParam obj)
@@ -120,6 +122,7 @@ namespace API.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost]
         [Route("LoginUser")]
 
