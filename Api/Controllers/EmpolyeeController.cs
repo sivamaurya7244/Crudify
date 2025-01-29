@@ -122,7 +122,7 @@ namespace API.Controllers
             }
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpPost]
         [Route("LoginUser")]
 
