@@ -11,6 +11,37 @@
         // Toggle the eye icon
         icon.toggleClass('fa-eye fa-eye-slash');
     });
+
+
+
+
+    // Function to get cookie value by name
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Get userId and password from cookies
+    var userId = getCookie("userId");
+    var password = getCookie("password");
+
+    // Fill the input fields if cookies are found
+    if (userId) {
+        $("#userId").val(userId);
+    }
+    if (password) {
+        $("#password").val(password);
+    }
+
+
+
+
     $("#loginForm").submit(function (event) {
         // Prevent default form submission
         event.preventDefault();
@@ -33,6 +64,18 @@
                 if (responce.isSuccess == true) {
                     sessionStorage.setItem("jwtToken", responce.data);
                     sessionStorage.setItem("userName", vParam.userId);
+
+                    // Check if "Is Remember" checkbox is checked
+                    if ($("#dropdownCheck2").prop("checked")) {
+                        setCookie("userId", vParam.userId, 7); // Store for 7 days
+                        setCookie("password", vParam.password, 7); // Store for 7 days
+                    } else {
+                        // Clear cookies if not checked
+                        setCookie("userId", '', -1); // Clear cookie
+                        setCookie("password", '', -1); // Clear cookie
+                    }
+
+
                     window.location.href = "/Admin/DashBoard/Index";
                 }
                 else {
@@ -50,3 +93,14 @@
         });
     });
 });
+
+
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
